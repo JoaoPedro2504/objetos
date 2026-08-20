@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+
+var caneta = {
+    cor: "azul",
+    tamanho: "médio",
+    marca: "board master",
+    tinta: 10,
+    escrever(texto) {
+        alert(texto)
+       this.tinta = this.tinta - 1
+    }, 
+    verTinta(){
+        alert(this.tinta)
+    }
+    
+}
+    alert(caneta.cor)
+
+    caneta.material = "plástico"
+    alert(caneta.material)
+
+    delete caneta.tinta
+
+    caneta.escrever(" Um texto legal aqui")
+    caneta.escrever("Calopsita")
+    caneta.escrever("Senai")
+    caneta.escrever()
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

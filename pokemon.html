@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    var pokemon = {
+        nome: "Jigglypuff",
+        numeroPOKEDXEX: 39, 
+        tipo: "Normal/FADA",
+        nivel: 12,
+        vida: 100,
+        energia: 100,
+        altura: 0.5,
+        peso: 5.5,
+        forca: 45,
+        defesa: 20,
+        velocidade: 20,
+        habilidade: "Cute Charm",
+        ataques: "Cantar",
+        fraqueza: "Veneno e Aço",
+        evolucao: "Wigglytuff",
+
+        andar:function (){
+            console.log(this.nome + "está andando")
+        },
+
+        cantar: function () {
+            this.energia -= 15
+            console.log(this.nome + "usou Cantar e fez o adversário dormir")
+        },
+
+        comer: function(){
+            this.energia += 20
+            console.log(this.nome + "comeu e recuperou energia")
+        },
+
+        dormir: function() {
+            this.energa += 30
+            this.vida += 10
+            console.log(this.nome + "dormiu e recuperou energia")
+        },
+
+        receberDano: function(){
+            this.vida -= 20
+            console.log(this.nome + "recebeu dano")
+        },
+
+        descansar: function (){
+            this.vida += 15
+            console.log(this.nome + "descansou e recuperou vida") 
+        },
+
+        treinar: function(){
+            this.nivel += 1
+            this.forca += 15
+            console.log(this.nome + "treinou e aumentou seu nível")
+        }
+    }
+
+
+    console.log(jigglypuff)
+    console.log("Nome:", jigglypuff.nome)
+    console.log("Tipo:", jigglypuff.tipo)
+    console.log("Vida atual", jigglypuff.vida)
+
+    jigglypuff.andar()
+    jigglypuff.cantar()
+    jigglypuff.receberDano()
+    jigglypuff.comer()
+    jigglypuff.treinar()
+    jigglypuff.descansar()
+
+    console.log("Vida depois das ações", jigglypuff.vida)
+    console.log("Energia depois das ações", jigglypuff.energia)
+    console.log("Nível depois das ações", jigglypuff.nivel)
+    console.log("Força depois das ações", jigglypuff.forca)
+    
+
+
+</script>
+
+</body>
+</html>
