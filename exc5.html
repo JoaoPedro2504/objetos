@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        
+    var jogo = {
+    numeroSecreto: 0,
+    maxTentativas: 5,
+    tentativas: 0,
+    numeros: [],
+    situacao: "Jogando",
+
+    sortear: function() {
+        var numero = Math.floor(Math.random() * 100) + 1;
+        this.numeroSecreto = numero;
+    },
+
+    jogar: function(numero) {
+
+        if (this.situacao != "Jogando") {
+            console.log("O jogo terminou!");
+            return;
+        }
+
+        for (var numeroExistente of this.numeros) {
+
+            if (numeroExistente == numero) {
+                console.log("Número repetido!");
+                return;
+            }
+        }
+
+        this.numeros.push(numero);
+        this.tentativas = this.tentativas + 1;
+
+        if (numero == this.numeroSecreto) {
+
+            console.log("Você venceu!");
+            this.situacao = "Venceu";
+
+        } else if (numero < this.numeroSecreto) {
+
+            console.log("O número secreto é maior.");
+
+        } else {
+
+            console.log("O número secreto é menor.");
+        }
+
+        if (this.tentativas >= this.maxTentativas &&
+            this.situacao == "Jogando") {
+
+            this.situacao = "Perdeu";
+            console.log("Você perdeu!");
+        }
+    },
+
+    reiniciar: function() {
+        this.tentativas = 0;
+        this.numeros = [];
+        this.situacao = "Jogando";
+
+        this.sortear();
+    }
+};
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    
+
+   <script>
+
+    var agenda = {
+    contatos: [],
+
+    cadastrar: function(nome, telefone, email, favorito) {
+
+        for (var contato of this.contatos) {
+            if (contato.telefone == telefone) {
+                console.log("Telefone já cadastrado!");
+                return;
+            }
+        }
+
+        this.contatos.push({
+            nome: nome,
+            telefone: telefone,
+            email: email,
+            favorito: favorito
+        });
+    },
+
+    buscar: function(nome) {
+
+        for (var contato of this.contatos) {
+            if (contato.nome == nome) {
+                return contato;
+            }
+        }
+
+        return "Contato não encontrado!";
+    },
+
+    alterarTelefone: function(nome, novoTelefone) {
+
+        for (var contato of this.contatos) {
+            if (contato.nome == nome) {
+                contato.telefone = novoTelefone;
+            }
+        }
+    },
+
+    favorito: function(nome) {
+
+        for (var contato of this.contatos) {
+            if (contato.nome == nome) {
+                contato.favorito = !contato.favorito;
+            }
+        }
+    },
+
+    remover: function(nome) {
+
+        var novo = [];
+
+        for (var contato of this.contatos) {
+            if (contato.nome != nome) {
+                novo.push(contato);
+            }
+        }
+
+        this.contatos = novo;
+    },
+
+    mostrarFavoritos: function() {
+
+        for (var contato of this.contatos) {
+            if (contato.favorito == true) {
+                console.log(contato);
+            }
+        }
+    }
+};
+
+   </script> 
+</body>
+</html>

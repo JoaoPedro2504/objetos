@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+    var estacionamento = {
+    veiculos: [],
+    maxVagas: 10,
+
+    entrada: function(placa, modelo, horario) {
+
+        if (this.veiculos.length >= this.maxVagas) {
+            console.log("Estacionamento lotado!");
+            return;
+        }
+
+        for (var veiculo of this.veiculos) {
+
+            if (veiculo.placa == placa) {
+                console.log("Placa já cadastrada!");
+                return;
+            }
+        }
+
+        this.veiculos.push({
+            placa: placa,
+            modelo: modelo,
+            horario: horario
+        });
+    },
+
+    saida: function(placa, horas) {
+
+        var novo = [];
+
+        for (var veiculo of this.veiculos) {
+
+            if (veiculo.placa != placa) {
+                novo.push(veiculo);
+            }
+        }
+
+        this.veiculos = novo;
+
+        return horas * 8;
+    },
+
+    verificar: function(placa) {
+
+        for (var veiculo of this.veiculos) {
+
+            if (veiculo.placa == placa) {
+                return true;
+            }
+        }
+
+        return false;
+    },
+
+    vagasLivres: function() {
+        return this.maxVagas - this.veiculos.length;
+    }
+};
+
+
+
+ </script>   
+</body>
+</html>

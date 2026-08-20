@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+    var turma = {
+    nome: "8º A",
+    totalAulas: 20,
+    estudantes: [],
+
+    cadastrar: function(nome) {
+
+        this.estudantes.push({
+            nome: nome,
+            presencas: 0,
+            faltas: 0
+        });
+    },
+
+    presenca: function(nome) {
+
+        for (var aluno of this.estudantes) {
+
+            if (aluno.nome == nome) {
+
+                if (aluno.presencas + aluno.faltas < this.totalAulas) {
+                    aluno.presencas = aluno.presencas + 1;
+                }
+            }
+        }
+    },
+
+
+    
+    falta: function(nome) {
+
+        for (var aluno of this.estudantes) {
+
+            if (aluno.nome == nome) {
+
+                if (aluno.presencas + aluno.faltas < this.totalAulas) {
+                    aluno.faltas = aluno.faltas + 1;
+                }
+            }
+        }
+    },
+
+    frequencia: function(nome) {
+
+        for (var aluno of this.estudantes) {
+
+            if (aluno.nome == nome) {
+                return (aluno.presencas / this.totalAulas) * 100;
+            }
+        }
+    },
+
+    abaixo75: function() {
+
+        for (var aluno of this.estudantes) {
+
+            var porcentagem =
+                (aluno.presencas / this.totalAulas) * 100;
+
+            if (porcentagem < 75) {
+                console.log(aluno.nome);
+            }
+        }
+    }
+};
+
+
+
+
+
+ </script>   
+</body>
+</html>

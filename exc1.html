@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+    var temperatuas = {
+        lista: [],
+        
+        registrar: function(temp){
+            if (temp >= 50 && temp <= 60)
+        {
+            this.lista.push(temp)
+        }   else {
+            console.log('Temperatura inválida')
+        }
+    },
+
+    mostrar: function(){
+        console.log(this.lista)
+    },
+
+    maior: function(){
+        var maior = this.lista[0]
+
+        for (var temp of this.lista){
+            if (temp > maior){
+                maior = temp
+            }
+        }
+
+    },
+
+    menor: function(){
+        var menor = this.lista[0]
+
+        for (var temp of this.lista){
+            if (temp < menor) {
+                menor = temp
+            }
+        }
+        
+        return menor
+    },
+
+    media: function(){
+        var soma = 0
+
+        for (var temp of this.lista) {
+            soma = soma + temp
+        }
+
+     return menor
+    },
+
+    media: function(){
+        var soma = 0
+
+        for(var temp of this.lista){
+            soma = soma + temp
+        }
+
+        return soma / this.lista.length
+    },
+
+    acimaMedia: function(){
+        var quantidade = 0
+        var media = this.media()
+
+        for(var temp of this.lista){
+            if (temp > media) {
+                quantidade = quantidade + 1
+            }
+
+        }
+
+        return quantidade
+    }
+    }
+
+
+ </script>   
+</body>
+</html>

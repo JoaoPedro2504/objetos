@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+    var maquina = {
+        agua: 0,
+        cafe: 0,
+        copos: 0,
+        cafesPreparados: 0,
+
+        reporAgua: function(quantidade){
+            this.agua = this.agua + quantidade
+        },
+
+        reporCafe: function(quantidade){
+            this.cafe = this.cafe + quantidade
+        },
+
+        adicionarCopos:
+        function(quantidade){
+            this.copos = this.copos + quantidade
+        },
+
+        prepararCafe: function(){
+            if (this.agua >= 200 &&
+                this.cafe >= 20 &&
+                this.copos >= 1){
+
+                    this.agua = this.agua - 200
+                    this.cafe = this.cafe - 20
+                    this.copos = this.copos - 1
+
+                    this.cafesPreparados = this.cafesPreparados + 1
+
+                    console.log("Café preparado")
+                 } else {
+                    console.log("Ingredientes insuficientes")
+                 }
+                },
+                 consultar: function(){
+                    console.log("Água", this.agua)
+                    console.log("Café", this.cafe)
+                    console.log("Copos", this.copos)
+                    console.log("Cafés", this.cafesPreparados)
+                      }
+                  }
+
+
+
+
+
+
+
+
+
+ </script>   
+</body>
+</html>
